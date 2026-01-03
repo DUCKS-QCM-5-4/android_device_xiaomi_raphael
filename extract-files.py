@@ -19,11 +19,6 @@ from extract_utils.main import (
 blob_fixups: blob_fixups_user_type = {
     'vendor/etc/init/init.batterysecret.rc': blob_fixup()
         .regex_replace('.*seclabel u:r:batterysecret:s0\n', ''),
-    'vendor/lib/hw/audio.primary.raphael.so': blob_fixup()
-        .binary_regex_replace(
-            b'/vendor/lib/liba2dpoffload.so',
-            b'liba2dpoffload_raphael.so\x00\x00\x00\x00',
-        ),
     'vendor/lib64/camera/components/com.qti.node.watermark.so': blob_fixup()
         .add_needed('libpiex_shim.so'),
 }  # fmt: skip
